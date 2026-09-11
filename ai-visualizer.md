@@ -42,7 +42,7 @@ Restart the server. Then, in order:
 If any step fails, `TROUBLESHOOTING.md` has the ladder; climb it with them instead of guessing.
 
 
-```
+## Phase 5.5: Tell them what else this connects to
 
 Tell them what to expect: a fresh Claude Code session opens with the installer already talking. It asks their name, who their agent should be, and which pieces they want. Anything they already have gets found and kept. Their visualizer config gets picked up and wired to the voice, so the face starts performing their real conversation instead of a demo.
 
