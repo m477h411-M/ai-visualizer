@@ -1,6 +1,5 @@
 @echo off
 rem ai-visualizer -- updating has moved. This script does nothing now.
-rem Copyright (C) 2026 Jared Rhodenizer
 rem SPDX-License-Identifier: AGPL-3.0-or-later
 rem
 rem WHY THIS IS EMPTY, because the reason is worth knowing before anyone
