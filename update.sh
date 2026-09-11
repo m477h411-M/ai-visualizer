@@ -1,6 +1,5 @@
 #!/bin/bash
 # ai-visualizer — update to the newest version, showing what changed first.
-# Copyright (C) 2026 Jared Rhodenizer
 # SPDX-License-Identifier: AGPL-3.0-or-later
 #
 # Your ai-visualizer.json is yours: nothing in this script can touch or overwrite it.
