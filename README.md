@@ -1,16 +1,11 @@
 # ai-visualizer
 
-> **Never used Claude Code?** Start at [jaredrhod.com](https://jaredrhod.com): pick your situation and it routes you to the right path.
-
 **Runs on:** Python 3 and a browser; works with any AI. Pair it with backtalk (Claude Code) for the live show; demo mode works standalone.
 
 The visualizer from my videos. Not a lookalike and not a prompt that asks your AI to build one: the actual living circuit board I run on stream, plus three more faces from my own rig, shipped as working code. Point it at your voice line and your agent gets a face that idles, listens, thinks, and speaks in sync with the real conversation.
 
 There is nothing to install. The whole thing is a folder of web pages and one tiny Python server that uses only the standard library. If your machine can open a browser, it can run this.
 
-**Watch it in action:**
-
-[![ai-visualizer demo video](https://img.youtube.com/vi/6Tb41ORADgs/maxresdefault.jpg)](https://youtu.be/6Tb41ORADgs)
 
 ## The four faces
 
@@ -24,7 +19,7 @@ Every face speaks the same signal bus, so switching faces is just opening a diff
 ## Install
 
 ```
-git clone https://github.com/jaredrhod/ai-visualizer
+git clone https://github.com/m477h411-m/ai-visualizer
 cd ai-visualizer
 ./run.sh
 ```
@@ -33,7 +28,7 @@ That starts the server and opens the default face (the board, unless you change 
 
 **The easy way to configure it:** open this folder in Claude Code and say *"read ai-visualizer.md and set me up."* The wizard picks your face, your agent's name, and wires your voice line with you.
 
-**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/jaredrhod/ai-visualizer.git, then read ai-visualizer/ai-visualizer.md and set me up."* Your agent clones it, runs the wizard, and wires it in for you.
+**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-m/ai-visualizer.git, then read ai-visualizer/ai-visualizer.md and set me up."* Your agent clones it, runs the wizard, and wires it in for you.
 
 **The manual way:** copy `ai-visualizer.json.example` to `ai-visualizer.json` (your copy is untracked, so updates never touch it), then edit it. Set `name` to your agent's name (it goes on the chip and in every HUD), and `face` to the one the root URL should open.
 
@@ -45,7 +40,7 @@ Or run the server itself in mock mode and every face rides the synthetic bus: `.
 
 ## Wire your voice
 
-The faces read three tiny files, the same signal-bus contract [backtalk](https://github.com/jaredrhod/backtalk) writes natively:
+The faces read three tiny files, the same signal-bus contract [backtalk](https://github.com/m477h411-m/voicebox) writes natively:
 
 ```
 .voice_state        idle | listening | thinking | speaking
@@ -80,27 +75,7 @@ Each face is a browser page, so OBS takes it as a browser source pointed at the 
 
 The VT323 typeface by Peter Hull, licensed under the SIL Open Font License 1.1 (see `assets/VT323-OFL.txt`). Everything else here is hand-rolled canvas code with zero dependencies.
 
-## Updating
-
-The visualizer improves continuously, and new faces are planned. To update on macOS, double-click the `Update` icon setup left on your Desktop, or run `./update.sh` in this folder. On Windows, or any time, say **"pull the latest ai-visualizer and tell me what changed"** to your agent — it does the same job. Your config and any custom faces you added stay untouched. Installed through fullstack-agent? `./fullstack-agent/update.sh` (macOS) updates every piece at once and prints what changed.
-
-## The rest of it
-
-A face is better with a voice behind it. The visualizer performs your real conversations only when a voice line is wired in, and the agent doing the talking is only as good as the memory behind it.
-
-- **The whole stack, one command.** [fullstack-agent](https://github.com/jaredrhod/fullstack-agent) installs the memory, the voice, the face, and the hands, and wires them together for you. Pick only the pieces you want: https://jaredrhod.com
-- **The videos.** Free series on all of it: https://youtube.com/@jaredrhod
-- **The Discord.** Thousands of builders, and the fastest place to get unstuck: https://discord.gg/YSdsqMv3V8
-- **Everything else,** free and open: https://jaredrhod.com
-
-## Support
-
-Free to use, and always will be. If this helped you out, you can buy me a coffee:
-
-[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/jaredrhod)
 
 ## License
-
-Copyright (c) 2026 Jared Rhodenizer.
 
 Licensed under the GNU Affero General Public License, version 3 or later (AGPL-3.0-or-later). **Use it in your business, commercially, for free.** Run it, change it, build your workflow on top of it, and charge for the work you do with it. The one rule is that it stays open: if you hand it to someone else, or run a modified version as a service other people use, your version ships under this same license with its source available. Credit me when you build on it. Want it inside a closed-source commercial product? Email license@jaredrhod.com. Full terms are in the LICENSE file and at https://www.gnu.org/licenses/agpl-3.0.html
