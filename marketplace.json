@@ -1,0 +1,20 @@
+{
+  "name": "ai-visualizer",
+  "owner": {
+    "name": "Matthew Hall",
+    "url": "https://github.com/m477h411-M"
+  },
+  "plugins": [
+    {
+      "name": "ai-visualizer",
+      "source": "./",
+      "displayName": "ai-visualizer",
+      "description": "Give your agent a face. Four animated browser faces — a procedural circuit board, a radial particle orb, matrix rain with a face in it, and a neural core — that idle, listen, think and speak in sync with your voice line. Zero dependencies: Python 3 and a browser.",
+      "version": "1.0.0",
+      "homepage": "https://github.com/m477h411-M/ai-visualizer",
+      "repository": "https://github.com/m477h411-M/ai-visualizer",
+      "license": "AGPL-3.0-or-later",
+      "keywords": ["visualizer", "avatar", "face", "canvas", "voice", "agent", "claude-code", "obs"]
+    }
+  ]
+}

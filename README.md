@@ -6,7 +6,6 @@ The visualizer from my videos. Not a lookalike and not a prompt that asks your A
 
 There is nothing to install. The whole thing is a folder of web pages and one tiny Python server that uses only the standard library. If your machine can open a browser, it can run this.
 
-
 ## The four faces
 
 - **The Circuit Board.** A full-bleed procedural PCB with your agent's name on the center chip. Data pulses stream the traces, components flash as signals hit them, and the whole board reverses flow when it listens to you. Press Space for a live cinematic flythrough of the board while it works.
@@ -19,16 +18,28 @@ Every face speaks the same signal bus, so switching faces is just opening a diff
 ## Install
 
 ```
-git clone https://github.com/m477h411-m/ai-visualizer
+git clone https://github.com/m477h411-M/ai-visualizer.git
 cd ai-visualizer
 ./run.sh
 ```
 
 That starts the server and opens the default face (the board, unless you change `face` in the config). The gallery of all four faces stays at the root URL. Python 3 is the only requirement, and it ships with macOS and most Linux systems. On Windows, run `run.bat` (or `python server.py`) in this folder.
 
-**The easy way to configure it:** open this folder in Claude Code and say *"read ai-visualizer.md and set me up."* The wizard picks your face, your agent's name, and wires your voice line with you.
+**The easy way to configure it:** open this folder in Claude Code and say *"set me up."* The repo's own `CLAUDE.md` loads on the way in, so your agent already knows to read `ai-visualizer.md` and run the wizard: your face, your agent's name, and your voice line wired in.
 
-**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-m/ai-visualizer.git, then read ai-visualizer/ai-visualizer.md and set me up."* Your agent clones it, runs the wizard, and wires it in for you.
+**Already in a Claude Code session with your agent?** One sentence does the whole install: *"clone https://github.com/m477h411-M/ai-visualizer.git, then read ai-visualizer/ai-visualizer.md and set me up."* Your agent clones it, runs the wizard, and wires it in for you.
+
+**Or install it as a plugin,** so any session can set it up without you going and finding the URL. One command at a time, each on its own line:
+
+```
+/plugin marketplace add https://github.com/m477h411-M/ai-visualizer.git
+```
+
+```
+/plugin install ai-visualizer@ai-visualizer
+```
+
+Then say **"set up ai-visualizer"** in any Claude Code session. The plugin only bootstraps: it clones a working copy into a folder you pick and runs the wizard there, because a plugin directory gets replaced on update and your config and your own face art shouldn't live somewhere that can be wiped.
 
 **The manual way:** copy `ai-visualizer.json.example` to `ai-visualizer.json` (your copy is untracked, so updates never touch it), then edit it. Set `name` to your agent's name (it goes on the chip and in every HUD), and `face` to the one the root URL should open.
 
@@ -43,9 +54,9 @@ Or run the server itself in mock mode and every face rides the synthetic bus: `.
 The faces read three tiny files, the same signal-bus contract [backtalk](https://github.com/m477h411-m/voicebox) writes natively:
 
 ```
-.voice_state        idle | listening | thinking | speaking
-.voice_waveform     JSON {ts, samples: [64 floats]} while audio plays
-.voice_loading_pid  exists while the voice line plays a thinking sound
+.voice_state idle | listening | thinking | speaking
+.voice_waveform JSON {ts, samples: [64 floats]} while audio plays
+.voice_loading_pid exists while the voice line plays a thinking sound
 ```
 
 Point them at each other in either direction: set `bus_dir` in `ai-visualizer.json` to your backtalk folder, or set `signals_dir` in backtalk's config to this folder. Restart both, say something, and the face performs the real conversation. Anything else that writes those three files works exactly the same, so a custom voice line can drive the faces too.
@@ -74,7 +85,6 @@ Each face is a browser page, so OBS takes it as a browser source pointed at the 
 ## Credits
 
 The VT323 typeface by Peter Hull, licensed under the SIL Open Font License 1.1 (see `assets/VT323-OFL.txt`). Everything else here is hand-rolled canvas code with zero dependencies.
-
 
 ## License
 

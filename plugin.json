@@ -1,0 +1,13 @@
+{
+  "name": "ai-visualizer",
+  "description": "Bootstraps and configures ai-visualizer, the animated browser face for an AI agent.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Matthew Hall",
+    "url": "https://github.com/m477h411-M"
+  },
+  "homepage": "https://github.com/m477h411-M/ai-visualizer",
+  "repository": "https://github.com/m477h411-M/ai-visualizer",
+  "license": "AGPL-3.0-or-later",
+  "keywords": ["visualizer", "avatar", "face", "canvas", "voice", "agent", "claude-code", "obs"]
+}
