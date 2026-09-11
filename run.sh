@@ -1,6 +1,5 @@
 #!/bin/bash
 # ai-visualizer: give your AI agent a face.
-# Copyright (C) 2026 Jared Rhodenizer
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as published
