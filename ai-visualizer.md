@@ -22,7 +22,7 @@ If they pick the rain face, offer the swap: any portrait on a black background d
 
 ## Phase 3: Wire the voice
 
-Ask whether they run [backtalk](https://github.com/jaredrhod/backtalk) (or another voice line that writes the `.voice_*` bus files).
+Ask whether they run [backtalk](https://github.com/m477h411-m/voicebox) (or another voice line that writes the `.voice_*` bus files).
 
 - **Yes, backtalk:** find its folder. Either set `"bus_dir"` here to that folder, or set `"signals_dir"` in their `backtalk.json` to this folder. One direction, not both. Restart whichever side changed.
 - **No voice line:** that's fine. The faces run standalone on demo mode (`?demo=1`), and the server's mock mode (`--mock speaking`) fakes a live bus. Mention backtalk once as the natural next piece and move on.
