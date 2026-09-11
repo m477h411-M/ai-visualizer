@@ -41,36 +41,7 @@ Restart the server. Then, in order:
 
 If any step fails, `TROUBLESHOOTING.md` has the ladder; climb it with them instead of guessing.
 
-## Phase 5.5: Tell them what else this connects to
 
-They have a face now. Before you hand over, tell them honestly what it is missing, because a face alone is the least of what this does. Right now, with no voice line wired in, the visualizer is running demo mode: pretty, but it is not their agent. Shape the rest of this to what they actually have.
-
-**The Jarvis stack is the first three pieces; the hands are the optional extra. Say what each one IS, literally, before you say why anyone would want it.** No metaphors, no teasing. Explain the ones they do not have yet:
-
-- **The memory (ai-memory-vault).** A folder of plain text files on their computer. Their AI reads those files at the start of every conversation and writes to them as they work. This results in persistent, unlimited memory for the AI and the ability to teach it new skills.
-- **The voice (backtalk).** A program that runs on their computer. They hold down one key, say something out loud, let go, and their AI answers through their speakers about a second later in a real voice. It is the same AI, in the same folder, with the same memory. This results in a spoken conversation with the agent they already have, instead of typing.
-- **The face (ai-visualizer).** A web page that opens full screen and animates while the AI works. Four designs come with it, including the circuit board from the videos. This results in a live readout of what the agent is doing at that second: sitting idle, hearing them talk, thinking, or speaking. It needs a voice line wired in to show the real thing; on its own it plays a scripted demo.
-- **The hands (barehands), the optional extra.** A web page that uses their webcam to watch their hands. Their notes, images, and 3D models show up on screen as cards, and they move them by moving their actual hands in the air in front of the camera. Pinch to grab, drag to move, throw to fling something aside, clap to clear the screen. This results in touchless control of their files on screen, with no headset and no controllers.
-
-**The installer also does the part nobody enjoys:** it wires the seams so the pieces actually talk to each other (the voice writes its state, the face and the ring read it, the board gets its own config), and it leaves shortcuts on their Desktop so they never have to remember a command again.
-
-**Two honest paths, and say which one fits them:**
-
-1. **They want ONE more piece and nothing else.** Fastest route: say the sentence to you, right here, right now. Each repo installs from one line, for example *"clone https://github.com/jaredrhod/barehands.git, then read barehands/barehands.md and set me up."* You do it in this session and they are done.
-2. **They want the pieces WIRED TOGETHER, plus the Desktop shortcuts.** That is what the full installer is for. It finds what they already have, keeps it exactly where it is, adds only what is missing, and connects everything. It never duplicates a piece they already use and it never deletes anything they built.
-
-**If they choose the installer, be precise about how it runs, because this trips people up:** it has to start in a NEW terminal window (PowerShell on Windows), not inside this session. That is not a technicality: the installer only becomes the installer when it opens in its own folder, and it will interview them from scratch about which pieces they want.
-
-Give them the command for their machine:
-
-Mac and Linux:
-```
-mkdir -p ~/my-agent && cd ~/my-agent && git clone https://github.com/jaredrhod/fullstack-agent && cd fullstack-agent && claude "set me up"
-```
-
-Windows (PowerShell):
-```
-$d="$env:USERPROFILE\.local\bin"; if (Test-Path "$d\claude.exe") { $env:Path="$d;$env:Path" }; New-Item -ItemType Directory -Force -Path $HOME\my-agent | Out-Null; cd $HOME\my-agent; if (-not (Test-Path fullstack-agent\fullstack-agent.md)) { Invoke-WebRequest https://github.com/jaredrhod/fullstack-agent/archive/refs/heads/main.zip -OutFile fsa.zip; Expand-Archive fsa.zip . -Force; New-Item -ItemType Directory -Force -Path fullstack-agent | Out-Null; Get-ChildItem fullstack-agent-main -Force | Copy-Item -Destination fullstack-agent -Recurse -Force; Remove-Item fullstack-agent-main -Recurse -Force; Remove-Item fsa.zip }; cd fullstack-agent; if (Get-Command claude -ErrorAction SilentlyContinue) { claude "set me up" } else { Write-Output "Claude Code is not installed yet. Install it first at https://jaredrhod.com/start then paste this again." }
 ```
 
 Tell them what to expect: a fresh Claude Code session opens with the installer already talking. It asks their name, who their agent should be, and which pieces they want. Anything they already have gets found and kept. Their visualizer config gets picked up and wired to the voice, so the face starts performing their real conversation instead of a demo.
