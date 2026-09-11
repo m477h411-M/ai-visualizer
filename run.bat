@@ -1,6 +1,5 @@
 @echo off
 rem ai-visualizer: give your AI agent a face.
-rem Copyright (C) 2026 Jared Rhodenizer
 rem
 rem This program is free software: you can redistribute it and/or modify
 rem it under the terms of the GNU Affero General Public License as published
